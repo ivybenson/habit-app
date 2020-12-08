@@ -71,6 +71,9 @@ export default class AddHabit extends React.Component {
             placeholder="number"
             aria-required="true"
             aria-label="habit-frequency"
+            onChange={(e) =>
+              this.context.updateNewHabitData(e.target.name, e.target.value)
+            }
           ></input>
           <p>times per week</p>
           <label htmlFor="note"></label>
@@ -81,7 +84,7 @@ export default class AddHabit extends React.Component {
             aria-required="true"
             aria-label="habit-note"
             onChange={(e) =>
-              this.context.updateNewHabitData(e.target.note, e.target.value)
+              this.context.updateNewHabitData(e.target.name, e.target.value)
             }
           ></input>
           <p>Write yourself a note of encouragement!</p>

@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
-// import FullCalendar from "@fullcalendar/react";
-// import dayGridPlugin from "@fullcalendar/daygrid";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import config from "./config";
-
-// import Calendar from "./Calendar";
 import "./App.css";
 import Context from "./Context";
 import AddHabit from "./AddHabit/AddHabit";
@@ -16,7 +12,20 @@ import LandingPage from "./LandingPage/LandingPage";
 class App extends React.Component {
   state = {
     users: [],
-    habits: [],
+    habits: [
+      {
+        id: "1",
+        title: "Journaling",
+        frequency: 2,
+        note: "makes sure to add stickers",
+      },
+      {
+        id: "2",
+        title: "Running",
+        frequency: 3,
+        note: "you are running from your nightmares",
+      },
+    ],
     newHabit: {
       title: {
         touched: false,
@@ -31,6 +40,7 @@ class App extends React.Component {
         value: "",
       },
     },
+    updateNewHabitData: () => {},
   };
 
   componentDidMount() {}
