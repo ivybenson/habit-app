@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import config from "./config";
 import "./App.css";
@@ -78,13 +77,6 @@ class App extends React.Component {
 
           <AddHabit />
           <HabitList />
-          <div>
-            {/* <Calendar /> */}
-            {/* <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /> */}
-          </div>
-          <div>
-            <Calendar />
-          </div>
         </div>
       </Context.Provider>
     );
