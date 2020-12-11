@@ -9,6 +9,7 @@ import HabitList from "./HabitList/HabitList";
 import LandingPage from "./LandingPage/LandingPage";
 import Login from "./Login/Login";
 import Navigation from "./Navigation/Navigation";
+import Dashboard from "./Dashboard/Dashboard";
 
 class App extends React.Component {
   state = {
@@ -65,7 +66,8 @@ class App extends React.Component {
           <h1 className="header">HabitNow</h1>
           <Navigation />
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/welcome" component={LandingPage} />
             <Route path="/login" component={Login} />
             <Route path="/AddHabit" component={AddHabit} />
             <Route path="/habitlist" component={HabitList} />

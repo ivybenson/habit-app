@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   return (
     <div className="landingPage">
       <g2>Welcome to the HabitNow. Start buidling your habits today!</g2>
@@ -10,7 +10,9 @@ export default function LandingPage() {
         pursue your habit. These will be added to your main page and you can
         track from there!
       </p>
-      <button type="submit">Close</button>
+      <button type="submit" onClick={(e) => props.history.push("/login")}>
+        Get Started
+      </button>
     </div>
   );
 }
