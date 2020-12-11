@@ -6,10 +6,10 @@ import Calendar from "react-calendar";
 export default class AddHabit extends React.Component {
   static contextType = Context;
   render() {
-    const { habits = [] } = this.context;
+    const { habits_dummy = [] } = this.context;
     return (
       <ul>
-        {habits.map((habit) => (
+        {habits_dummy.map((habit) => (
           <li className="habit-list-item">
             <p>Your current habit is:</p>
             {habit.title}

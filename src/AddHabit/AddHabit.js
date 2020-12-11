@@ -6,8 +6,16 @@ import config from "../config";
 export default class AddHabit extends React.Component {
   static contextType = Context;
 
+  state = {
+    habit: {
+      title: "",
+      frequency: "",
+      note: "",
+    },
+  };
+
   addNewHabit = (habit) => {
-    fetch(`${config.API_ENDPOINT}/habits`, {
+    fetch(`${config.API_ENDPOINT}/api/habits`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,18 +31,44 @@ export default class AddHabit extends React.Component {
       });
   };
 
-  handleAddHabit = (e) => {
-    e.preventDefault(e);
-    const newHabit = {
-      title: this.context.newHabit.title.value,
-      frequency: this.context.newHabit.frequency.value,
-      note: this.context.newHabit.note.value,
-      modified: new Date(),
-    };
-    console.log(newHabit);
-    this.addNewHabit(newHabit);
-    this.props.history.push("/");
-  };
+  titleChange(title) {
+    this.setState({
+      title,
+    });
+  }
+
+  frequencyChange(frequency) {
+    this.setState({
+      frequency,
+    });
+  }
+
+  noteChange(note) {
+    this.setState({
+      note,
+    });
+  }
+
+  //   handleAddHabit = (e) => {
+  //     e.preventDefault(e);
+  //     const newHabit = {
+  //       title: this.state.habit.title.value,
+  //       frequency: this.state.habit.frequency.value,
+  //       note: this.state.habit.note.value,
+  //       modified: new Date(),
+  //     };
+  //     console.log(newHabit);
+  //     this.addNewHabit(newHabit);
+  //     this.props.history.push("/");
+  //   };
+
+  //   updatHabitData = (e) => {
+  //       this.setState({
+  //           habit:{
+  //               title:
+  //           }
+  //       })
+  //   }
 
   validatHabitTitle = () => {
     if (this.context.newHabit.title.value.length === 0) {
@@ -59,10 +93,11 @@ export default class AddHabit extends React.Component {
             type="text"
             placeholder="habit"
             id="habit-title"
-            rewuired
+            required
             aria-required="true"
             aria-label="habit-title"
-          ></input>
+            onChange={(e) => this.titleChange(e.target.value)}
+          />
           <label htmlFor="frequency"></label>
           <input
             type="text"
@@ -71,9 +106,7 @@ export default class AddHabit extends React.Component {
             placeholder="number"
             aria-required="true"
             aria-label="habit-frequency"
-            onChange={(e) =>
-              this.context.updateNewHabitData(e.target.name, e.target.value)
-            }
+            onChange={(e) => this.frequencyChange(e.target.value)}
           ></input>
           <p>times per week</p>
           <label htmlFor="note"></label>
@@ -83,12 +116,16 @@ export default class AddHabit extends React.Component {
             placeholder="note"
             aria-required="true"
             aria-label="habit-note"
-            onChange={(e) =>
-              this.context.updateNewHabitData(e.target.name, e.target.value)
-            }
+            onChange={(e) => this.noteChange(e.target.value)}
           ></input>
           <p>Write yourself a note of encouragement!</p>
-          <button type="submit">Add Habit</button>
+          <button
+            className="add-habit-button"
+            disabled={this.validatHabitFrequency && this.validatHabitTitle}
+            type="submit"
+          >
+            Add Habit
+          </button>
         </form>
       </div>
     );

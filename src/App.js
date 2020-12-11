@@ -14,7 +14,7 @@ import Dashboard from "./Dashboard/Dashboard";
 class App extends React.Component {
   state = {
     users: [],
-    habits: [
+    habits_dummy: [
       {
         id: "1",
         title: "Journaling",
@@ -42,22 +42,9 @@ class App extends React.Component {
         value: "",
       },
     },
-    updateNewHabitData: () => {},
   };
 
   componentDidMount() {}
-
-  updateNewHabitData = (input, value) => {
-    this.setState({
-      newHabit: {
-        ...this.state.newHabit,
-        [input]: {
-          touched: true,
-          value: value,
-        },
-      },
-    });
-  };
 
   render() {
     return (
@@ -66,11 +53,11 @@ class App extends React.Component {
           <h1 className="header">HabitNow</h1>
           <Navigation />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/welcome" component={LandingPage} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={LandingPage} />
             <Route path="/login" component={Login} />
-            <Route path="/AddHabit" component={AddHabit} />
-            <Route path="/habitlist" component={HabitList} />
+            <Route path="/add-habit" component={AddHabit} />
+            <Route path="/habit-list" component={HabitList} />
             <Route render={() => <h2>Page Not Found</h2>} />
           </Switch>
         </div>
