@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
 import config from "./config";
 import "./App.css";
@@ -7,6 +7,8 @@ import Context from "./Context";
 import AddHabit from "./AddHabit/AddHabit";
 import HabitList from "./HabitList/HabitList";
 import LandingPage from "./LandingPage/LandingPage";
+import Login from "./Login/Login";
+import Navigation from "./Navigation/Navigation";
 
 class App extends React.Component {
   state = {
@@ -61,22 +63,14 @@ class App extends React.Component {
       <Context.Provider value={this.state}>
         <div className="App">
           <h1 className="header">HabitNow</h1>
-
-          <LandingPage />
-          <div className="logIn">
-            <h2>Log in here</h2>
-            <form>
-              <label>Username:</label>
-              <input></input>
-            </form>
-            <form>
-              <label>Password:</label>
-              <input></input>
-            </form>
-          </div>
-
-          <AddHabit />
-          <HabitList />
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/login" component={Login} />
+            <Route path="/AddHabit" component={AddHabit} />
+            <Route path="/habitlist" component={HabitList} />
+            <Route render={() => <h2>Page Not Found</h2>} />
+          </Switch>
         </div>
       </Context.Provider>
     );
