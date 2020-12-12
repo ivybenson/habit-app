@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
-import config from "./config";
+//import config from "./config";
 import "./App.css";
 import Context from "./Context";
 import AddHabit from "./AddHabit/AddHabit";
@@ -14,33 +14,43 @@ import Dashboard from "./Dashboard/Dashboard";
 class App extends React.Component {
   state = {
     users: [],
-    habits_dummy: [
+    habits: [
       {
-        id: "1",
+        id: 1,
         title: "Journaling",
         frequency: 2,
-        note: "makes sure to add stickers",
+        note: "make sure to add stickers",
       },
       {
-        id: "2",
+        id: 2,
         title: "Running",
         frequency: 3,
         note: "you are running from your nightmares",
       },
     ],
-    newHabit: {
-      title: {
-        touched: false,
-        value: "",
+    events: [
+      {
+        habit_id: 1,
+        date: "12/2/2020",
       },
-      frequency: {
-        touched: false,
-        value: "",
+      {
+        habit_id: 1,
+        date: "12/3/2020",
       },
-      note: {
-        touched: false,
-        value: "",
+      {
+        habit_id: 2,
+        date: "12/10/2020",
       },
+    ],
+    addHabit: (habit) => {
+      this.setState({
+        habits: [...this.state.habits, habit],
+      });
+    },
+    addEvent: (event) => {
+      this.setState({
+        events: [...this.state.events, event],
+      });
     },
   };
 

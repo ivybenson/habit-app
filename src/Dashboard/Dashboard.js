@@ -7,10 +7,10 @@ export default class Dashboard extends React.Component {
     return (
       <div>
         <h2>Hello, User!</h2>
-        Here are your Habits:
-        <HabitList />
         Add A New One?
         <AddHabit />
+        Here are your Habits:
+        <HabitList />
       </div>
     );
   }
