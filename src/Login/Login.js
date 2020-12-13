@@ -25,7 +25,7 @@ export default class Login extends React.Component {
     //   .catch((err) => console.error(err));
 
     TokenService.saveAuthToken("authtoken1");
-    this.props.history.push("/dashbord");
+    this.props.history.push("/dashboard");
   };
 
   render() {
@@ -53,7 +53,7 @@ export default class Login extends React.Component {
               type="password"
               placeholder="Password"
               name="password"
-              value="password1234"
+              value="P@ssword1234"
             ></input>
           </fieldset>
           <button className="login" type="submit">
