@@ -13,3 +13,15 @@ fieldset {
 .selectedDate {
   background-color: lightgreen;
 }
+
+.landingPage {
+  background-color: lightgrey;
+  width: 80%; /* Magic here */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  float: center;
+  padding: 5px;
+  /* margin: 10%; */
+}

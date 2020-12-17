@@ -61,10 +61,10 @@ class App extends React.Component {
       <Context.Provider value={this.state}>
         <div className="App">
           <h1 className="header">HabitNow</h1>
-          <Navigation />
+          <Route path="/" component={Navigation} />
           <Switch>
-            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={LandingPage} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/login" component={Login} />
             <Route path="/add-habit" component={AddHabit} />
             <Route path="/habit-list" component={HabitList} />

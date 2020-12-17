@@ -6,8 +6,8 @@ import TokenService from "../services/token-services";
 export default class Login extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
-    const { email, password } = e.target;
-    const newUser = { email: email.value, password: password.value };
+    // const { email, password } = e.target;
+    // const newUser = { email: email.value, password: password.value };
 
     // fetch(`${API_BASE_URL}/api/auth/login`, {
     //   method: "POST",
@@ -33,28 +33,26 @@ export default class Login extends React.Component {
       <section className="login">
         <h2>Log In</h2>
 
-        <form className="login-form" onSubmit={this.hangleLogin}>
+        <form className="login-form" onSubmit={this.handleLogin}>
           <fieldset aria-label="email">
-            <label
+            <label htmlFor="email">Email:</label>
+            <input
               id="email"
               type="email"
               placeholder="Email"
               name="email"
-              value="demo@demo.com"
-            >
-              Email:
-            </label>
-            <input></input>
+              defaultValue="demo@demo.com"
+            />
           </fieldset>
           <fieldset aria-label="password">
-            <label>Password:</label>
+            <label htmlFor="password">Password:</label>
             <input
               id="password"
               type="password"
               placeholder="Password"
               name="password"
-              value="P@ssword1234"
-            ></input>
+              defaultValue="P@ssword1234"
+            />
           </fieldset>
           <button className="login" type="submit">
             Log In
