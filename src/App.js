@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
-//import config from "./config";
+import config from "./config";
 import "./App.css";
 import Context from "./Context";
 import AddHabit from "./AddHabit/AddHabit";
@@ -10,6 +10,7 @@ import LandingPage from "./LandingPage/LandingPage";
 import Login from "./Login/Login";
 import Navigation from "./Navigation/Navigation";
 import Dashboard from "./Dashboard/Dashboard";
+import tokenServices from "./services/token-services";
 
 class App extends React.Component {
   state = {
@@ -52,9 +53,22 @@ class App extends React.Component {
         events: [...this.state.events, event],
       });
     },
+    getHabits: () => {
+      fetch(`${config.API_ENDPOINT}/api/habits`, {
+        headers: {
+          Authorization: `Bearer ${tokenServices.getAuthToken()}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((habits) => this.setState({ habits }));
+    },
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (tokenServices.hasAuthToken()) {
+      this.state.getHabits();
+    }
+  }
 
   render() {
     return (

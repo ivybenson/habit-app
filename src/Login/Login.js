@@ -6,23 +6,24 @@ import TokenService from "../services/token-services";
 export default class Login extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
-    // const { email, password } = e.target;
-    // const newUser = { email: email.value, password: password.value };
+    const { email, password } = e.target;
+    const newUser = { email: email.value, password: password.value };
 
-    // fetch(`${API_BASE_URL}/api/auth/login`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newUser),
-    // })
-    //   .then((res) => res.json())
-    //   .then((loginResponse) => {
-    //     TokenService.saveAuthToken(loginResponse.authToken);
-    //     this.props.history.push("/dashbord");
-    //   })
-    //   .catch((err) => console.error(err));
+    fetch(`${API_BASE_URL}/api/auth/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((loginResponse) => {
+        TokenService.saveAuthToken(loginResponse.authToken);
+        this.context.getHabits();
+        this.props.history.push("/dashbord");
+      })
+      .catch((err) => console.error(err));
 
     TokenService.saveAuthToken("authtoken1");
     this.props.history.push("/dashboard");
