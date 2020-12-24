@@ -23,7 +23,7 @@ export default class AddHabit extends React.Component {
       frequency: frequency.value,
       note: note.value,
     };
-    /*fetch(`${config.API_ENDPOINT}/api/habits`, {
+    fetch(`${config.API_ENDPOINT}/api/habits`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,11 +39,11 @@ export default class AddHabit extends React.Component {
         }
         return res.json();
       })
-      .then((habit) => {*/
-    e.target.reset();
-    this.context.addHabit(habit);
-    //})
-    //.catch((error) => this.setState({ error }));
+      .then((habit) => {
+        e.target.reset();
+        this.context.addHabit(habit);
+      })
+      .catch((error) => this.setState({ error }));
   };
 
   render() {

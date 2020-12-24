@@ -23,6 +23,7 @@ export default class AddHabit extends React.Component {
             {habit.title}
             <p>You want to do it {habit.frequency} times per week</p>
             <p>Reminder: {habit.note}</p>
+            <button>Delete</button>
             <Calendar
               onClickDay={(value, event) => {
                 this.context.addEvent({
