@@ -23,6 +23,17 @@ export default class Navigation extends React.Component {
               </button>
             </Link>
           </li>
+          <li>
+            <Link to="/signup">
+              <button
+                className="signup-button"
+                aria-label="signup"
+                type="submit"
+              >
+                Signup
+              </button>
+            </Link>
+          </li>
           {!TokenService.hasAuthToken() ? (
             <li>
               <Link to="/login">

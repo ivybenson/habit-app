@@ -11,6 +11,7 @@ import Login from "./Login/Login";
 import Navigation from "./Navigation/Navigation";
 import Dashboard from "./Dashboard/Dashboard";
 import tokenServices from "./services/token-services";
+import SignUp from "./Signup/Signup";
 
 class App extends React.Component {
   state = {
@@ -82,6 +83,7 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/add-habit" component={AddHabit} />
             <Route path="/habit-list" component={HabitList} />
+            <Route path="/signup" component={SignUp} />
             <Route render={() => <h2>Page Not Found</h2>} />
           </Switch>
         </div>
