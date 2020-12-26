@@ -8,10 +8,14 @@ export default class Login extends React.Component {
     e.preventDefault();
     const { email, password } = e.target;
     const user = { email: email.value, password: password.value };
-    AuthApiService.loginUser(user).then((loginResponse) => {
-      TokenService.saveAuthToken(loginResponse.authToken);
-      this.props.history.push("/dashbord");
-    });
+    AuthApiService.loginUser(user)
+      .then((loginResponse) => {
+        TokenService.saveAuthToken(loginResponse.authToken);
+        this.props.history.push("/dashboard");
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
@@ -22,13 +26,7 @@ export default class Login extends React.Component {
         <form className="login-form" onSubmit={this.handleLogin}>
           <fieldset aria-label="email">
             <label htmlFor="email">Email:</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              name="email"
-              defaultValue="demo@demo.com"
-            />
+            <input id="email" type="email" placeholder="Email" name="email" />
           </fieldset>
           <fieldset aria-label="password">
             <label htmlFor="password">Password:</label>
@@ -37,7 +35,6 @@ export default class Login extends React.Component {
               type="password"
               placeholder="Password"
               name="password"
-              defaultValue="Password1!"
             />
           </fieldset>
           <button className="login" type="submit">

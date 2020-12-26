@@ -38,7 +38,6 @@ export default class Signup extends React.Component {
                 placeholder="email"
                 name="email"
                 id="new-email"
-                defaultValue="demo3@demo.com"
               />
             </div>
           </fieldset>
@@ -52,7 +51,6 @@ export default class Signup extends React.Component {
                 type="password"
                 placeholder="new password"
                 name="password"
-                defaultValue="Password1!"
               />
             </div>
           </fieldset>
@@ -66,7 +64,6 @@ export default class Signup extends React.Component {
                 type="password"
                 placeholder="confirm password"
                 name="confirmPassword"
-                defaultValue="Password1!"
               />
             </div>
           </fieldset>

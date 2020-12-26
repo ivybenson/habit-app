@@ -34,43 +34,37 @@ export default class Navigation extends React.Component {
               </button>
             </Link>
           </li>
-          {!TokenService.hasAuthToken() ? (
+          <li>
+            <Link to="/login">
+              <button className="login-button" aria-label="login" type="submit">
+                Log In
+              </button>
+            </Link>
+          </li>
+
+          <>
             <li>
-              <Link to="/login">
+              <Link to="/dashboard">
                 <button
-                  className="login-button"
-                  aria-label="login"
+                  className="dashboard-button"
+                  aria-label="Dashboard"
                   type="submit"
                 >
-                  Log In
+                  Dashboard
                 </button>
               </Link>
             </li>
-          ) : (
-            <>
-              <li>
-                <Link to="/dashboard">
-                  <button
-                    className="dashboard-button"
-                    aria-label="Dashboard"
-                    type="submit"
-                  >
-                    Dashboard
-                  </button>
-                </Link>
-              </li>
-              <li>
-                <button
-                  className="logout-button"
-                  aria-label="logout-button"
-                  type="submit"
-                  onClick={() => this.logout()}
-                >
-                  Log out
-                </button>
-              </li>
-            </>
-          )}
+            <li>
+              <button
+                className="logout-button"
+                aria-label="logout-button"
+                type="submit"
+                onClick={() => this.logout()}
+              >
+                Log out
+              </button>
+            </li>
+          </>
         </ul>
       </nav>
     );
