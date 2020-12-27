@@ -9,12 +9,13 @@ export default class Signup extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, confirmPassword } = e.target;
+    const { email, password, confirmPassword, name } = e.target;
     this.setState({ error: null });
     AuthApiService.postUser({
       email: email.value,
       password: password.value,
       confirmPassword: confirmPassword.value,
+      name: name.value,
     })
       .then((user) => {
         this.props.history.push("./login");
@@ -32,10 +33,14 @@ export default class Signup extends React.Component {
           {this.state.error && <p className="error">{this.state.error}</p>}
           <fieldset>
             <div>
+              <label>Name: </label>
+              <input type="name" placeholder="Name" name="name" id="new-name" />
+            </div>
+            <div>
               <label>Email: </label>
               <input
-                type="emial"
-                placeholder="email"
+                type="email"
+                placeholder="Email"
                 name="email"
                 id="new-email"
               />
@@ -49,7 +54,7 @@ export default class Signup extends React.Component {
               <input
                 id="new-password"
                 type="password"
-                placeholder="new password"
+                placeholder="New Password"
                 name="password"
               />
             </div>
@@ -62,7 +67,7 @@ export default class Signup extends React.Component {
               <input
                 id="new-password"
                 type="password"
-                placeholder="confirm password"
+                placeholder="Confirm Password"
                 name="confirmPassword"
               />
             </div>

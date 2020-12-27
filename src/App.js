@@ -44,6 +44,7 @@ class App extends React.Component {
         date: "12/10/2020",
       },
     ],
+    error: null,
     addHabit: (habit) => {
       this.setState({
         habits: [...this.state.habits, habit],
@@ -62,6 +63,9 @@ class App extends React.Component {
       })
         .then((res) => res.json())
         .then((habits) => this.setState({ habits }));
+    },
+    logout: () => {
+      this.setState({ habits: [], events: [] });
     },
   };
 

@@ -2,8 +2,11 @@ import React from "react";
 import "./Login.css";
 import AuthApiService from "../services/auth-api-service";
 import TokenService from "../services/token-services";
+import Context from "../Context";
 
 export default class Login extends React.Component {
+  static contextType = Context;
+
   handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
@@ -11,6 +14,7 @@ export default class Login extends React.Component {
     AuthApiService.loginUser(user)
       .then((loginResponse) => {
         TokenService.saveAuthToken(loginResponse.authToken);
+        this.context.getHabits();
         this.props.history.push("/dashboard");
       })
       .catch((res) => {

@@ -2,6 +2,7 @@ import React from "react";
 
 import Context from "../Context";
 import config from "../config";
+import TokenService from "../services/token-services";
 
 export default class AddHabit extends React.Component {
   static contextType = Context;
@@ -27,7 +28,7 @@ export default class AddHabit extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${config.TOKEN_KEY}`,
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(habit),
     })

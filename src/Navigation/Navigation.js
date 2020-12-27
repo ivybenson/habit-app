@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../services/token-services";
+import Context from "../Context";
 
 export default class Navigation extends React.Component {
+  static contextType = Context;
+
   logout = () => {
     TokenService.clearAuthToken();
+    this.context.logout();
     this.props.history.push("/");
   };
 
