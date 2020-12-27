@@ -8,7 +8,6 @@ export default class AddHabit extends React.Component {
 
   tileClassName = (date, view, dates) => {
     if (dates.includes(new Date(date).toLocaleDateString())) {
-      console.log("yes");
       return "selectedDate";
     }
   };
@@ -23,7 +22,7 @@ export default class AddHabit extends React.Component {
             {habit.title}
             <p>You want to do it {habit.frequency} times per week</p>
             <p>Reminder: {habit.note}</p>
-            <button>Delete</button>
+
             <Calendar
               onClickDay={(value, event) => {
                 this.context.addEvent({

@@ -48,7 +48,7 @@ export default class Signup extends React.Component {
           </fieldset>
           <fieldset>
             <div>
-              <label htmlFor="new-paaword" className="signup-pw">
+              <label htmlFor="new-password" className="signup-pw">
                 Password:
               </label>
               <input
@@ -61,11 +61,11 @@ export default class Signup extends React.Component {
           </fieldset>
           <fieldset>
             <div>
-              <label htmlFor="retype-paaword" className="confirm-user-pw">
+              <label htmlFor="confirm-password" className="confirm-user-pw">
                 Confirm Password:
               </label>
               <input
-                id="new-password"
+                id="confirm-password"
                 type="password"
                 placeholder="Confirm Password"
                 name="confirmPassword"
