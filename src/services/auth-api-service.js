@@ -2,7 +2,7 @@ import config from "../config";
 
 export default {
   postUser(user) {
-    return fetch(`${config.API_ENDPOINT}/api/users`, {
+    return fetch(`${config.API_ENDPOINT}api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export default {
     );
   },
   loginUser(user) {
-    return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
+    return fetch(`${config.API_ENDPOINT}api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
