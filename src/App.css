@@ -1,5 +1,18 @@
 * {
   text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  font-family: "Montserrat", sans-serif;
+  background-color: lime;
+}
+
+h1 {
+  margin: none;
 }
 
 li {
@@ -15,13 +28,104 @@ fieldset {
 }
 
 .landingPage {
-  background-color: lightgrey;
-  width: 80%; /* Magic here */
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   float: center;
   padding: 5px;
-  /* margin: 10%; */
+}
+
+nav {
+  border: lime solid 2px;
+  background-color: lime;
+  padding: 15px;
+  font-size: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  background-color: white;
+  color: black;
+  margin: 0;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+button :active {
+  background-color: black;
+  color: white;
+}
+
+.add-habit-button .signup-btn {
+  border: 2px solid #4caf50;
+}
+
+.signup-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signup-page div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  align-content: center;
+}
+
+.signup-page form {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  background: lime;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black 2px solid;
+  width: 60%;
+  padding: 30px;
+  margin-top: 5%;
+  align-self: center;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-form {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  background: lime;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black 2px solid;
+  width: 60%;
+  padding: 20px;
+  align-self: center;
+}
+
+.landingPage {
+  background-color: rgb(234, 229, 229);
+  line-height: 1.4;
+  padding: 5%;
+}
+
+.landingpage-btn {
+  margin-top: 5px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.react-calendar {
+  align-self: center;
 }

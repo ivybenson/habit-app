@@ -9,13 +9,12 @@ export default class Signup extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, confirmPassword, name } = e.target;
+    const { email, password, confirmPassword } = e.target;
     this.setState({ error: null });
     AuthApiService.postUser({
       email: email.value,
       password: password.value,
       confirmPassword: confirmPassword.value,
-      name: name.value,
     })
       .then((user) => {
         this.props.history.push("./login");
@@ -27,15 +26,13 @@ export default class Signup extends React.Component {
 
   render() {
     return (
-      <section>
-        <h3>Get Started</h3>
+      <section className="signup-page">
+        <div>
+          <h3>Get Started</h3>
+        </div>
         <form aria-label="signup-form" onSubmit={this.handleSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}
           <fieldset>
-            <div>
-              <label>Name: </label>
-              <input type="name" placeholder="Name" name="name" id="new-name" />
-            </div>
             <div>
               <label>Email: </label>
               <input
@@ -49,7 +46,7 @@ export default class Signup extends React.Component {
           <fieldset>
             <div>
               <label htmlFor="new-password" className="signup-pw">
-                Password:
+                Password: {""}
               </label>
               <input
                 id="new-password"
@@ -62,7 +59,7 @@ export default class Signup extends React.Component {
           <fieldset>
             <div>
               <label htmlFor="confirm-password" className="confirm-user-pw">
-                Confirm Password:
+                Confirm Password: {""}
               </label>
               <input
                 id="confirm-password"

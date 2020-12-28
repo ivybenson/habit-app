@@ -24,7 +24,7 @@ export default class AddHabit extends React.Component {
       frequency: frequency.value,
       note: note.value,
     };
-    fetch(`${config.API_ENDPOINT}api/habits`, {
+    fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default class AddHabit extends React.Component {
           <p>
             <input
               type="text"
-              placeholder="reading, walking, drinking water"
+              placeholder="reading, running, cooking"
               id="habit-title"
               required
               aria-required="true"

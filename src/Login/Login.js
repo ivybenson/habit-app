@@ -24,7 +24,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <section className="login">
+      <div className="login">
         <h2>Log In</h2>
 
         <form className="login-form" onSubmit={this.handleLogin}>
@@ -41,11 +41,11 @@ export default class Login extends React.Component {
               name="password"
             />
           </fieldset>
-          <button className="login" type="submit">
+          <button className="login-btn" type="submit">
             Log In
           </button>
         </form>
-      </section>
+      </div>
     );
   }
 }

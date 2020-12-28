@@ -14,21 +14,13 @@ export default class Navigation extends React.Component {
 
   render() {
     return (
-      <nav>
-        <ul>
+      <nav className="NavbarItems">
+        <h1 className="header">
+          <h1>HabitNow</h1>
+        </h1>
+        <ul className="nav-list">
           {TokenService.hasAuthToken() ? (
             <>
-              <li>
-                <Link to="/dashboard">
-                  <button
-                    className="dashboard-button"
-                    aria-label="Dashboard"
-                    type="submit"
-                  >
-                    Dashboard
-                  </button>
-                </Link>
-              </li>
               <li>
                 <button
                   className="logout-button"
