@@ -41,6 +41,9 @@ export default class AddHabit extends React.Component {
         return res.json();
       })
       .then((habit) => {
+        alert(
+          "Your habit has been added to your list. Tap dates to track your habit."
+        );
         e.target.reset();
         this.context.addHabit(habit);
       })
