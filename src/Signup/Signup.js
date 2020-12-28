@@ -28,7 +28,7 @@ export default class Signup extends React.Component {
     return (
       <section className="signup-page">
         <div>
-          <h3>Get Started</h3>
+          <h2>Signup</h2>
         </div>
         <form aria-label="signup-form" onSubmit={this.handleSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}

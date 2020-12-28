@@ -7,6 +7,10 @@ import Context from "../Context";
 export default class Login extends React.Component {
   static contextType = Context;
 
+  state = {
+    error: null,
+  };
+
   handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
@@ -26,8 +30,8 @@ export default class Login extends React.Component {
     return (
       <div className="login">
         <h2>Log In</h2>
-
         <form className="login-form" onSubmit={this.handleLogin}>
+          {this.state.error && <p className="error">{this.state.error}</p>}
           <fieldset aria-label="email">
             <label htmlFor="email">Email:</label>
             <input id="email" type="email" placeholder="Email" name="email" />

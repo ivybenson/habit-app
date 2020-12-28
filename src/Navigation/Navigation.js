@@ -15,9 +15,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <h1 className="header">
-          <h1>HabitNow</h1>
-        </h1>
+        <h1 className="header">HabitNow</h1>
         <ul className="nav-list">
           {TokenService.hasAuthToken() ? (
             <>
