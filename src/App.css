@@ -11,10 +11,6 @@
   background-color: lime;
 }
 
-h1 {
-  margin: none;
-}
-
 li {
   list-style: none;
 }
@@ -47,6 +43,8 @@ nav {
   flex-wrap: wrap;
 }
 
+/* BUTTON GENERAL STYLING */
+
 button {
   border: none;
   background-color: white;
@@ -68,6 +66,8 @@ button :active {
 .add-habit-button .signup-btn {
   border: 2px solid #4caf50;
 }
+
+/* SIGNUP PAGE STYLING */
 
 .signup-page {
   display: flex;
@@ -95,6 +95,8 @@ button :active {
   align-self: center;
 }
 
+/* LOGIN STYLING */
+
 .login {
   display: flex;
   justify-content: center;
@@ -113,6 +115,8 @@ button :active {
   padding: 20px;
   align-self: center;
 }
+
+/* LANDING PAGE STYLING */
 
 .landingPage {
   background-color: rgb(234, 229, 229);

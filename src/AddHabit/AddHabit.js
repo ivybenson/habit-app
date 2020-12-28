@@ -90,7 +90,7 @@ export default class AddHabit extends React.Component {
             aria-label="habit-note"
             name="note"
           />
-          <p>Write yourself a note of encouragement!</p>
+          <p>Write yourself a note of encouragement</p>
           <button className="add-habit-button" type="submit">
             Add Habit
           </button>
