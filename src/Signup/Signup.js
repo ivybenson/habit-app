@@ -29,6 +29,12 @@ export default class Signup extends React.Component {
       <section className="signup-page">
         <div>
           <h2>Signup</h2>
+          <p>
+            Add account here or log in if you have an account already created.
+            Upon signing in you can add habits right away. Track your habits by
+            tapping on the days that you completed your habit and it will turn
+            green to inicate you have completed it that day.
+          </p>
         </div>
         <form aria-label="signup-form" onSubmit={this.handleSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}
