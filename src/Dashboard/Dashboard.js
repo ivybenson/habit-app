@@ -5,9 +5,10 @@ import HabitList from "../HabitList/HabitList";
 export default class Dashboard extends React.Component {
   render() {
     return (
-      <div>
+      <div onSubmit={this.addEvent}>
         <AddHabit />
-        Here are your Habits:
+        <h3>Current List</h3>
+
         <HabitList />
       </div>
     );

@@ -1,15 +1,49 @@
 import React from "react";
-
 import Context from "../Context";
 import Calendar from "react-calendar";
+import config from "../config";
+import TokenService from "../services/token-services";
 
 export default class AddHabit extends React.Component {
   static contextType = Context;
+
+  state = {};
 
   tileClassName = (date, view, dates) => {
     if (dates.includes(new Date(date).toLocaleDateString())) {
       return "selectedDate";
     }
+  };
+
+  addNewEvent = (e) => {
+    e.preventDefault();
+
+    const event = {
+      id: this.context.habits.length + 1,
+      date: this.context.events.date,
+      habit_id: this.context.events.habit_id,
+    };
+    fetch(`${config.API_ENDPOINT_TEST}api/progress`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(event),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then((habit) => {
+        e.target.reset();
+        this.context.addEvent(habit);
+      })
+      .catch((error) => this.setState({ error }));
   };
 
   render() {

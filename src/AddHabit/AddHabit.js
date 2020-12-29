@@ -52,11 +52,12 @@ export default class AddHabit extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Your Habits</h2>
-        <p>I want to do the following habit:</p>
+      <div className="add-habit">
+        <h2>Add A Habit</h2>
+
         <form className="add-habit-form" onSubmit={this.addNewHabit}>
           <p>
+            I want to {""}
             <input
               type="text"
               placeholder="reading, running, cooking"
@@ -78,7 +79,7 @@ export default class AddHabit extends React.Component {
               aria-required="true"
               aria-label="number"
               name="frequency"
-            />
+            />{" "}
             times per week
           </p>
 
@@ -91,7 +92,11 @@ export default class AddHabit extends React.Component {
             name="note"
           />
           <p>Write yourself a note of encouragement</p>
-          <button className="add-habit-button" type="submit">
+          <button
+            className="add-habit-button"
+            type="submit"
+            style={{ border: "black" }}
+          >
             Add Habit
           </button>
         </form>
