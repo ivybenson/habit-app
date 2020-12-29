@@ -56,7 +56,7 @@ class App extends React.Component {
       });
     },
     getHabits: () => {
-      fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
+      fetch(`${config.API_ENDPOINT}api/habits`, {
         headers: {
           Authorization: `Bearer ${tokenServices.getAuthToken()}`,
         },

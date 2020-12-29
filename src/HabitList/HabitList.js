@@ -23,7 +23,7 @@ export default class AddHabit extends React.Component {
       date: this.context.events.date,
       habit_id: this.context.events.habit_id,
     };
-    fetch(`${config.API_ENDPOINT_TEST}api/progress`, {
+    fetch(`${config.API_ENDPOINT}api/progress`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
