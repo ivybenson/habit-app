@@ -20,10 +20,10 @@ export default class AddHabit extends React.Component {
 
     const event = {
       id: this.context.habits.length + 1,
-      date: this.context.events.date,
-      habit_id: this.context.events.habit_id,
+      date: this.date,
+      habit_id: this.habit_id,
     };
-    fetch(`${config.API_ENDPOINT}api/progress`, {
+    fetch(`${config.API_ENDPOINT_TEST}api/progress`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export default class AddHabit extends React.Component {
                 this.context.addEvent({
                   habit_id: habit.id,
                   date: new Date(value).toLocaleDateString(),
-                });
+                }) && this.addNewEvent;
               }}
               tileClassName={({ date, view }) => {
                 return this.tileClassName(

@@ -20,7 +20,8 @@ fieldset {
 }
 
 .selectedDate {
-  background-color: lightgreen;
+  color: black;
+  background-color: lime;
 }
 
 .landingPage {
