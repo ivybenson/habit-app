@@ -55,6 +55,11 @@ class App extends React.Component {
         events: [...this.state.events, event],
       });
     },
+    deleteEvent: (oldEvent) => {
+      this.setState({
+        events: this.state.events.filter((event) => event.id !== oldEvent.id),
+      });
+    },
     getHabits: () => {
       fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
         headers: {
@@ -62,7 +67,23 @@ class App extends React.Component {
         },
       })
         .then((res) => res.json())
-        .then((habits) => this.setState({ habits }));
+        .then((habits) =>
+          this.setState({ habits }, () => this.state.getEvents())
+        );
+    },
+    getEvents: () => {
+      fetch(`${config.API_ENDPOINT_TEST}api/progress/byhabits`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenServices.getAuthToken()}`,
+        },
+        body: JSON.stringify({
+          habit_ids: this.state.habits.map((habit) => habit.id),
+        }),
+      })
+        .then((res) => res.json())
+        .then((events) => this.setState({ events }));
     },
     logout: () => {
       this.setState({ habits: [], events: [] });

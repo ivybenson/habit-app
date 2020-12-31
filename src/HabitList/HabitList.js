@@ -7,7 +7,7 @@ import TokenService from "../services/token-services";
 export default class AddHabit extends React.Component {
   static contextType = Context;
 
-  state = {};
+  state = { events: [] };
 
   tileClassName = (date, view, dates) => {
     if (dates.includes(new Date(date).toLocaleDateString())) {
@@ -15,14 +15,12 @@ export default class AddHabit extends React.Component {
     }
   };
 
-  addNewEvent = (e) => {
-    e.preventDefault();
-
+  addNewEvent = (value, e, habit) => {
     const event = {
-      id: this.context.habits.length + 1,
-      date: this.date,
-      habit_id: this.habit_id,
+      habit_id: habit.id,
+      date: new Date(value),
     };
+    let status;
     fetch(`${config.API_ENDPOINT_TEST}api/progress`, {
       method: "POST",
       headers: {
@@ -37,11 +35,16 @@ export default class AddHabit extends React.Component {
             throw error;
           });
         }
+        status = res.status;
         return res.json();
       })
-      .then((habit) => {
-        e.target.reset();
-        this.context.addEvent(habit);
+      .then((event) => {
+        console.log({ status });
+        if (status === 200) {
+          this.context.deleteEvent(event);
+        } else {
+          this.context.addEvent(event);
+        }
       })
       .catch((error) => this.setState({ error }));
   };
@@ -58,22 +61,22 @@ export default class AddHabit extends React.Component {
             <p>Reminder: {habit.note}</p>
 
             <Calendar
-              onClickDay={(value, event) => {
-                this.context.addEvent({
-                  habit_id: habit.id,
-                  date: new Date(value).toLocaleDateString(),
-                }) && this.addNewEvent;
-              }}
+              onClickDay={(value, event) =>
+                this.addNewEvent(value, event, habit)
+              }
               tileClassName={({ date, view }) => {
                 return this.tileClassName(
                   date,
                   view,
                   this.context.events
                     .filter((e) => e.habit_id === habit.id)
-                    .map((e) => e.date)
+                    .map((e) => new Date(e.datecreated).toLocaleDateString())
                 );
               }}
             />
+            <button type="submit" onClick={this.addNewEvent}>
+              Submit New Progress
+            </button>
           </li>
         ))}
       </ul>
