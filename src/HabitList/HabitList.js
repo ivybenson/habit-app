@@ -74,9 +74,6 @@ export default class AddHabit extends React.Component {
                 );
               }}
             />
-            <button type="submit" onClick={this.addNewEvent}>
-              Submit New Progress
-            </button>
           </li>
         ))}
       </ul>
