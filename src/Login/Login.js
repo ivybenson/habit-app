@@ -30,6 +30,15 @@ export default class Login extends React.Component {
     return (
       <div className="login">
         <h2>Log In</h2>
+        <div className="defaultlogin">
+          <p>
+            Demo login:{" "}
+            <ul>
+              <li>Email: demo1@demo.com</li>
+              <li>Password: Password1!</li>
+            </ul>
+          </p>
+        </div>
         <form className="login-form" onSubmit={this.handleLogin}>
           {this.state.error && <p className="error">{this.state.error}</p>}
           <fieldset aria-label="email">

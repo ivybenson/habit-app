@@ -50,6 +50,8 @@ export default class AddHabit extends React.Component {
       .catch((error) => this.setState({ error }));
   };
 
+  // add habit expecting 201 back will add to the bottom at first and then will be sorted newest to oldest upon reload
+
   render() {
     return (
       <div className="add-habit">

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Signup.css";
 import AuthApiService from "../services/auth-api-service";
+import { Link } from "react-router-dom";
 
 export default class Signup extends React.Component {
   state = {
@@ -30,10 +31,10 @@ export default class Signup extends React.Component {
         <div>
           <h2>Signup</h2>
           <p>
-            Add account here or log in if you have an account already created.
-            Upon signing in you can add habits right away. Track your habits by
-            tapping on the days that you completed your habit and it will turn
-            green to inicate you have completed it that day.
+            Add account here or click Log In below if you already have an
+            account. Upon signing in you can add habits right away. Track your
+            habits by tapping on the days that you completed your habit and it
+            will turn green to track that you have completed it that day.
           </p>
         </div>
         <form aria-label="signup-form" onSubmit={this.handleSubmit}>
@@ -81,6 +82,12 @@ export default class Signup extends React.Component {
             </button>
           </fieldset>
         </form>
+
+        <Link to="/login">
+          <button className="login-button" aria-label="login" type="submit">
+            Log In
+          </button>
+        </Link>
       </section>
     );
   }

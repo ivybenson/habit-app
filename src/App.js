@@ -90,11 +90,15 @@ class App extends React.Component {
     },
   };
 
+  //CONTEXT AND APP COMPONENT STATE MERGED
+
   componentDidMount() {
     if (tokenServices.hasAuthToken()) {
       this.state.getHabits();
     }
   }
+
+  //REACT ROUTER SET IN APP, NAV HAS THE LINKS
 
   render() {
     return (
