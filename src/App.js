@@ -61,7 +61,7 @@ class App extends React.Component {
       });
     },
     getHabits: () => {
-      fetch(`${config.API_ENDPOINT}api/habits`, {
+      fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
         headers: {
           Authorization: `Bearer ${tokenServices.getAuthToken()}`,
         },
@@ -72,7 +72,7 @@ class App extends React.Component {
         );
     },
     getEvents: () => {
-      fetch(`${config.API_ENDPOINT}api/progress/byhabits`, {
+      fetch(`${config.API_ENDPOINT_TEST}api/progress/byhabits`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
