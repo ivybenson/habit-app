@@ -29,7 +29,6 @@ export default class AddHabit extends React.Component {
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${TokenService.getAuthToken()}`,
-        mode: "no-cors",
       },
       body: JSON.stringify(habit),
     })

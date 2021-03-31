@@ -51,7 +51,6 @@ class App extends React.Component {
       fetch(`${config.API_ENDPOINT}api/habits`, {
         headers: {
           Authorization: `Bearer ${tokenServices.getAuthToken()}`,
-          mode: "no-cors",
         },
       })
         .then((res) => res.json())
@@ -65,7 +64,6 @@ class App extends React.Component {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${tokenServices.getAuthToken()}`,
-          mode: "no-cors",
         },
         body: JSON.stringify({
           habit_ids: this.state.habits.map((habit) => habit.id),
