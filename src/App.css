@@ -181,3 +181,11 @@ button :active {
   line-height: 1.5em;
   align-self: center;
 }
+
+footer {
+  background-color: rgb(198, 194, 194);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

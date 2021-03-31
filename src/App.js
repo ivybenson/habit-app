@@ -16,20 +16,7 @@ import SignUp from "./Signup/Signup";
 class App extends React.Component {
   state = {
     users: [],
-    habits: [
-      {
-        id: 1,
-        title: "Journaling",
-        frequency: 2,
-        note: "make sure to add stickers",
-      },
-      {
-        id: 2,
-        title: "Running",
-        frequency: 3,
-        note: "you are running from your nightmares",
-      },
-    ],
+    habits: [],
     events: [
       {
         habit_id: 1,
@@ -61,7 +48,7 @@ class App extends React.Component {
       });
     },
     getHabits: () => {
-      fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
+      fetch(`${config.API_ENDPOINT}api/habits`, {
         headers: {
           Authorization: `Bearer ${tokenServices.getAuthToken()}`,
         },
@@ -72,7 +59,7 @@ class App extends React.Component {
         );
     },
     getEvents: () => {
-      fetch(`${config.API_ENDPOINT_TEST}api/progress/byhabits`, {
+      fetch(`${config.API_ENDPOINT}api/progress/byhabits`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,6 +83,7 @@ class App extends React.Component {
     if (tokenServices.hasAuthToken()) {
       this.state.getHabits();
     }
+    fetch(config.API_ENDPOINT).then((res) => console.log("heroku is woke"));
   }
 
   //REACT ROUTER SET IN APP, NAV HAS THE LINKS
@@ -114,6 +102,7 @@ class App extends React.Component {
             <Route path="/signup" component={SignUp} />
             <Route render={() => <h2>Page Not Found</h2>} />
           </Switch>
+          <footer>©Ivy Benson</footer>
         </div>
       </Context.Provider>
     );

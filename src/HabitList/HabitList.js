@@ -21,7 +21,7 @@ export default class AddHabit extends React.Component {
       date: new Date(value),
     };
     let status;
-    fetch(`${config.API_ENDPOINT_TEST}api/progress`, {
+    fetch(`${config.API_ENDPOINT}api/progress`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

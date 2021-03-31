@@ -24,7 +24,7 @@ export default class AddHabit extends React.Component {
       frequency: frequency.value,
       note: note.value,
     };
-    fetch(`${config.API_ENDPOINT_TEST}api/habits`, {
+    fetch(`${config.API_ENDPOINT}api/habits`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
