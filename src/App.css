@@ -194,4 +194,6 @@ footer {
   background-color: rgb(198, 194, 194);
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
 }
